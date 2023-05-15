@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make4Me - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-family: "Courier New", monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .code-type {
+            background-color: #333333;
+            color: #ffffff;
+            padding: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .copy-button {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .copy-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Code Response</h1>
+        {% if code_response %}
+        <div class="code-type">{{ code_type }}</div>
+        <pre class="code-block">{{ code_response }}</pre>
+        <button class="copy-button" onclick="copyToClipboard()">Copy Code</button>
+        {% endif %}
+        <script>
+            function copyToClipboard() {
+                /* Get the text from the code block */
+                const codeBlock = document.querySelector('.code-block');
+                const codeText = codeBlock.innerText;
+
+                /* Create a temporary textarea to hold the text */
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = codeText;
+                document.body.appendChild(tempTextArea);
+
+                /* Select the text and copy to clipboard */
+                tempTextArea.select();
+                document.execCommand('copy');
+
+                /* Remove the temporary textarea */
+                document.body.removeChild(tempTextArea);
+
+                /* Show a success message */
+                alert('Code copied to clipboard!');
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make4Me - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 400px;
+            height: 150px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Make4Me</h1>
+    <form action="/" method="post">
+        <label for="goal">Goal:</label>
+        <textarea id="goal" name="goal" rows="4" cols="50"></textarea>
+
+        <label for="input">Input:</label>
+        <textarea id="input" name="input" rows="4" cols="50"></textarea>
+
+        <label for="output">Output:</label>
+        <textarea id="output" name="output" rows="4" cols="50"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
